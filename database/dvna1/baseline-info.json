@@ -1,0 +1,1 @@
+{"languages":{"javascript":{"displayName":"JavaScript/TypeScript","files":["server.js","core/authHandler.js","config/db.js","routes/main.js","config/vulns.js","routes/app.js","config/server.js","core/appHandler.js","models/user.js","core/passport.js","models/index.js","models/product.js"],"linesOfCode":671,"name":"javascript"}}}

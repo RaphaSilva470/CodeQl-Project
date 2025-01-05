@@ -1,0 +1,972 @@
+[2025-01-05 13:23:44] This is codeql database create ../database/dvna1 --language=typescript --source-root=./
+[2025-01-05 13:23:44] Log file was started late.
+[2025-01-05 13:23:44] [PROGRESS] database create> Initializing database at /Users/raphahausen/pentesting/database/dvna1.
+[2025-01-05 13:23:44] Running plumbing command: codeql database init --language=typescript --extractor-options-verbosity=1 --qlconfig-file=/Users/raphahausen/pentesting/dvna/qlconfig.yml --source-root=/Users/raphahausen/pentesting/dvna --allow-missing-source-root=false --allow-already-existing -- /Users/raphahausen/pentesting/database/dvna1
+[2025-01-05 13:23:44] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/homebrew/Caskroom/codeql/2.20.0/codeql/.codeqlmanifest.json
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/go/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/python/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/java/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/html/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/xml/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/properties/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/cpp/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/swift/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/csv/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/yaml/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/csharp/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/codeql-extractor.yml.
+[2025-01-05 13:23:44] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.0/codeql/ruby/codeql-extractor.yml.
+[2025-01-05 13:23:44] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/html"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/xml"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/properties"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/csv"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/yaml"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.0/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-01-05 13:23:44] [PROGRESS] database init> Calculating baseline information in /Users/raphahausen/pentesting/dvna
+[2025-01-05 13:23:44] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-01-05 13:23:44] [DETAILS] database init> Running command in /Users/raphahausen/pentesting/dvna: /opt/homebrew/Caskroom/codeql/2.20.0/codeql/tools/osx64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-01-05 13:23:45] Using configure-baseline script /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/configure-baseline.sh.
+[2025-01-05 13:23:45] [PROGRESS] database init> Running command in /Users/raphahausen/pentesting/dvna: [/opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/configure-baseline.sh]
+[2025-01-05 13:23:45] [SPAMMY] database init> Found 12 baseline files for javascript.
+[2025-01-05 13:23:45] [PROGRESS] database init> Calculated baseline information for languages: javascript (73ms).
+[2025-01-05 13:23:45] [PROGRESS] database init> Resolving extractor javascript.
+[2025-01-05 13:23:45] [DETAILS] database init> Found candidate extractor root for javascript: /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript.
+[2025-01-05 13:23:45] [PROGRESS] database init> Successfully loaded extractor JavaScript/TypeScript (javascript) from /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript.
+[2025-01-05 13:23:45] [SPAMMY] database init> Determining macOS System Integrity Protection status...
+[2025-01-05 13:23:45] [SPAMMY] database init> Running command [/usr/bin/csrutil, status].
+[2025-01-05 13:23:45] [SPAMMY] database init> SIP is enabled.
+[2025-01-05 13:23:45] [PROGRESS] database init> Created skeleton CodeQL database at /Users/raphahausen/pentesting/database/dvna1. This in-progress database is ready to be populated by an extractor.
+[2025-01-05 13:23:45] Plumbing command codeql database init completed.
+[2025-01-05 13:23:45] [PROGRESS] database create> Running build command: []
+[2025-01-05 13:23:45] Running plumbing command: codeql database trace-command --working-dir=/Users/raphahausen/pentesting/dvna --index-traceless-dbs --no-db-cluster -- /Users/raphahausen/pentesting/database/dvna1
+[2025-01-05 13:23:45] Using autobuild script /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/autobuild.sh.
+[2025-01-05 13:23:45] [PROGRESS] database trace-command> Running command in /Users/raphahausen/pentesting/dvna: [/opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/autobuild.sh]
+[2025-01-05 13:23:45] [build-stdout] Single-threaded extraction.
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a10_logging/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a10_logging/description.ejs (39 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a10_logging/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a10_logging/reference.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a10_logging/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a10_logging/scenario.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a1_injection/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a1_injection/description.ejs (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a1_injection/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a1_injection/reference.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a1_injection/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a1_injection/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a2_broken_auth/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a2_broken_auth/description.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a2_broken_auth/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a2_broken_auth/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a2_broken_auth/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a2_broken_auth/scenario.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a3_sensitive_data/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a3_sensitive_data/description.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a3_sensitive_data/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a3_sensitive_data/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a3_sensitive_data/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a3_sensitive_data/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a4_xxe/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a4_xxe/description.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a4_xxe/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a4_xxe/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a4_xxe/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a4_xxe/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a5_broken_access_control/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a5_broken_access_control/description.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a5_broken_access_control/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a5_broken_access_control/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a5_broken_access_control/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a5_broken_access_control/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a6_sec_misconf/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a6_sec_misconf/description.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a6_sec_misconf/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a6_sec_misconf/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a6_sec_misconf/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a6_sec_misconf/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a7_xss/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a7_xss/description.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a7_xss/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a7_xss/reference.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a7_xss/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a7_xss/scenario.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a8_ides/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a8_ides/description.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a8_ides/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a8_ides/reference.ejs (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a8_ides/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a8_ides/scenario.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a9_vuln_component/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a9_vuln_component/description.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a9_vuln_component/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a9_vuln_component/reference.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a9_vuln_component/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/a9_vuln_component/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_csrf/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_csrf/description.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_csrf/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_csrf/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_csrf/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_csrf/scenario.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_redirect/description.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_redirect/description.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_redirect/reference.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_redirect/reference.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_redirect/scenario.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/ax_redirect/scenario.ejs (0 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/admin.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/admin.ejs (40 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/adminusers.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/adminusers.ejs (13 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/bulkproducts.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/bulkproducts.ejs (4 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/calc.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/calc.ejs (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/modifyproduct.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/modifyproduct.ejs (9 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/ping.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/ping.ejs (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/products.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/products.ejs (9 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/useredit.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/useredit.ejs (9 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/app/usersearch.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/app/usersearch.ejs (3 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/common/footer.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/common/footer.ejs (3 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/common/head.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/common/head.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/common/navigation.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/common/navigation.ejs (1 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/layout.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/vulnerabilities/layout.ejs (3 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/forgotpw.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/forgotpw.ejs (4 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/learn.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/learn.ejs (5 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/login.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/login.ejs (3 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/register.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/register.ejs (4 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/views/resetpw.ejs
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/views/resetpw.ejs (3 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/config/db.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/config/db.js (19 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/config/server.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/config/server.js (4 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/config/vulns.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/config/vulns.js (5 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/core/appHandler.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/core/appHandler.js (32 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/core/authHandler.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/core/authHandler.js (11 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/core/passport.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/core/passport.js (9 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/models/index.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/models/index.js (7 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/models/product.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/models/product.js (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/models/user.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/models/user.js (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/routes/app.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/routes/app.js (10 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/routes/main.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/routes/main.js (8 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/docker-compose.yml
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/docker-compose.yml (12 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/package.json
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/package.json (2 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /Users/raphahausen/pentesting/dvna/server.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /Users/raphahausen/pentesting/dvna/server.js (5 ms)
+[2025-01-05 13:23:45] [build-stderr] No externs trap cache found
+[2025-01-05 13:23:45] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/constants.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/constants.js (104 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/net.js
+[2025-01-05 13:23:45] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/net.js (33 ms)
+[2025-01-05 13:23:45] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/globals.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/globals.js (145 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/events.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/events.js (9 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/repl.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/repl.js (6 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/util.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/util.js (18 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/dgram.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/dgram.js (12 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/vm.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/vm.js (11 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/stream.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/stream.js (44 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/child_process.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/child_process.js (42 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/assert.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/assert.js (9 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/os.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/os.js (14 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/console.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/console.js (2 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/readline.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/readline.js (14 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/punycode.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/punycode.js (5 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/https.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/https.js (12 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/domain.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/domain.js (6 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/dns.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/dns.js (14 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/assert_legacy.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/assert_legacy.js (2 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/tty.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/tty.js (6 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/timers.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/timers.js (6 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/querystring.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/querystring.js (7 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/module.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/module.js (4 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/sys.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/sys.js (2 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/path.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/path.js (20 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/string_decoder.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/string_decoder.js (3 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/cluster.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/cluster.js (70 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/v8.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/v8.js (4 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/crypto.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/crypto.js (36 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/zlib.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/zlib.js (18 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/url.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/url.js (4 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/tls.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/tls.js (20 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/process.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/process.js (1 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/http.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/http.js (25 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/buffer.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/buffer.js (5 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/fs.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/nodejs/fs.js (68 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_dom.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_dom.js (35 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/mediasource.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/mediasource.js (5 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/html5.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/html5.js (127 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_anim_timing.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_anim_timing.js (3 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom3.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom3.js (24 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/fetchapi.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/fetchapi.js (15 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/streamsapi.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/streamsapi.js (15 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/fileapi.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/fileapi.js (28 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_navigation_timing.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_navigation_timing.js (9 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_range.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_range.js (8 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_indexeddb.js
+[2025-01-05 13:23:46] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_indexeddb.js (38 ms)
+[2025-01-05 13:23:46] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom2.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom2.js (59 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_elementtraversal.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_elementtraversal.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_webcrypto.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_webcrypto.js (11 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_vml.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_vml.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/intl.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/intl.js (7 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_rtc.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_rtc.js (57 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_requestidlecallback.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_requestidlecallback.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_geolocation.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_geolocation.js (4 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webstorage.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webstorage.js (4 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_usercontent.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_usercontent.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/window.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/window.js (4 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/page_visibility.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/page_visibility.js (1 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webgl.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webgl.js (98 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_touch_event.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_touch_event.js (6 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_event.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_event.js (16 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/whatwg_encoding.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/whatwg_encoding.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_event3.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_event3.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_xml.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_xml.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_event.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_event.js (8 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_css.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_css.js (57 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_css.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/ie_css.js (7 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_css.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_css.js (38 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_xml.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_xml.js (11 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_css.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_css.js (8 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/iphone.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/iphone.js (4 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_selectors.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_selectors.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/chrome.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/chrome.js (18 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_batterystatus.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_batterystatus.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_notifications.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_notifications.js (7 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_screen_orientation.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_screen_orientation.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_midi.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_midi.js (7 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_serviceworker.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_serviceworker.js (17 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_device_sensor_event.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_device_sensor_event.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_event.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_event.js (1 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_permissions.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_permissions.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_gamepad.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_gamepad.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom1.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom1.js (32 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/url.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/url.js (4 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_event.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_event.js (5 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_encoding.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_encoding.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/flash.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/flash.js (6 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_pointer_events.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_pointer_events.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_ext.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_ext.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_dom.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/gecko_dom.js (23 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_dom.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/webkit_dom.js (10 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_css3d.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_css3d.js (5 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom4.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/web/w3c_dom4.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/rhino.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/rhino.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/v8.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/v8.js (4 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/spidermonkey.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/spidermonkey.js (1 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/jsshell.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/vm/jsshell.js (19 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/jquery-3.2.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/jquery-3.2.js (76 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/bdd.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/bdd.js (3 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/should.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/should.js (8 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/vows.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/lib/vows.js (10 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/proxy.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/proxy.js (1 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es5.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es5.js (7 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/intl.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/intl.js (6 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es6_collections.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es6_collections.js (5 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es6.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es6.js (42 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es2017.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es2017.js (2 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es3.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es3.js (56 ms)
+[2025-01-05 13:23:47] [build-stdout] Extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es2016.js
+[2025-01-05 13:23:47] [build-stdout] Done extracting /opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/tools/data/externs/es/es2016.js (1 ms)
+[2025-01-05 13:23:47] Plumbing command codeql database trace-command completed.
+[2025-01-05 13:23:47] [PROGRESS] database create> Finalizing database at /Users/raphahausen/pentesting/database/dvna1.
+[2025-01-05 13:23:47] Running plumbing command: codeql database finalize --no-db-cluster -- /Users/raphahausen/pentesting/database/dvna1
+[2025-01-05 13:23:47] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /Users/raphahausen/pentesting/database/dvna1...
+[2025-01-05 13:23:47] Running plumbing command: codeql dataset import --dbscheme=/opt/homebrew/Caskroom/codeql/2.20.0/codeql/javascript/semmlecode.javascript.dbscheme -- /Users/raphahausen/pentesting/database/dvna1/db-javascript /Users/raphahausen/pentesting/database/dvna1/trap/javascript
+[2025-01-05 13:23:47] Clearing disk cache since the version file /Users/raphahausen/pentesting/database/dvna1/db-javascript/default/cache/version does not exist
+[2025-01-05 13:23:47] Tuple pool not found. Clearing relations with cached strings
+[2025-01-05 13:23:47] Trimming disk cache at /Users/raphahausen/pentesting/database/dvna1/db-javascript/default/cache in mode clear.
+[2025-01-05 13:23:47] Sequence stamp origin is -6097479909928411244
+[2025-01-05 13:23:47] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-01-05 13:23:47] Unpausing evaluation
+[2025-01-05 13:23:47] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-01-05 13:23:47] Unpausing evaluation
+[2025-01-05 13:23:47] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-01-05 13:23:47] Unpausing evaluation
+[2025-01-05 13:23:47] Trimming completed (3ms): Purged everything.
+[2025-01-05 13:23:47] Scanning for files in /Users/raphahausen/pentesting/database/dvna1/trap/javascript
+[2025-01-05 13:23:47] Found 179 TRAP files (8.63 MiB)
+[2025-01-05 13:23:47] [PROGRESS] dataset import> Importing TRAP files
+[2025-01-05 13:23:48] Importing db.js.trap.gz (1 of 179)
+[2025-01-05 13:23:48] Importing server.js.trap.gz (2 of 179)
+[2025-01-05 13:23:48] Importing vulns.js.trap.gz (3 of 179)
+[2025-01-05 13:23:48] Importing appHandler.js.trap.gz (4 of 179)
+[2025-01-05 13:23:48] Importing authHandler.js.trap.gz (5 of 179)
+[2025-01-05 13:23:48] Importing passport.js.trap.gz (6 of 179)
+[2025-01-05 13:23:48] Importing docker-compose.yml.trap.gz (7 of 179)
+[2025-01-05 13:23:48] Importing index.js.trap.gz (8 of 179)
+[2025-01-05 13:23:48] Importing product.js.trap.gz (9 of 179)
+[2025-01-05 13:23:48] Importing user.js.trap.gz (10 of 179)
+[2025-01-05 13:23:48] Importing package.json.trap.gz (11 of 179)
+[2025-01-05 13:23:48] Importing app.js.trap.gz (12 of 179)
+[2025-01-05 13:23:48] Importing main.js.trap.gz (13 of 179)
+[2025-01-05 13:23:48] Importing server.js.trap.gz (14 of 179)
+[2025-01-05 13:23:48] Importing admin.ejs.trap.gz (15 of 179)
+[2025-01-05 13:23:48] Importing adminusers.ejs.trap.gz (16 of 179)
+[2025-01-05 13:23:48] Importing bulkproducts.ejs.trap.gz (17 of 179)
+[2025-01-05 13:23:48] Importing calc.ejs.trap.gz (18 of 179)
+[2025-01-05 13:23:48] Importing modifyproduct.ejs.trap.gz (19 of 179)
+[2025-01-05 13:23:48] Importing ping.ejs.trap.gz (20 of 179)
+[2025-01-05 13:23:48] Importing products.ejs.trap.gz (21 of 179)
+[2025-01-05 13:23:48] Importing useredit.ejs.trap.gz (22 of 179)
+[2025-01-05 13:23:48] Importing usersearch.ejs.trap.gz (23 of 179)
+[2025-01-05 13:23:48] Importing footer.ejs.trap.gz (24 of 179)
+[2025-01-05 13:23:48] Importing head.ejs.trap.gz (25 of 179)
+[2025-01-05 13:23:48] Importing navigation.ejs.trap.gz (26 of 179)
+[2025-01-05 13:23:48] Importing forgotpw.ejs.trap.gz (27 of 179)
+[2025-01-05 13:23:48] Importing learn.ejs.trap.gz (28 of 179)
+[2025-01-05 13:23:48] Importing login.ejs.trap.gz (29 of 179)
+[2025-01-05 13:23:48] Importing register.ejs.trap.gz (30 of 179)
+[2025-01-05 13:23:48] Importing resetpw.ejs.trap.gz (31 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (32 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (33 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (34 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (35 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (36 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (37 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (38 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (39 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (40 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (41 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (42 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (43 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (44 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (45 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (46 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (47 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (48 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (49 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (50 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (51 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (52 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (53 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (54 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (55 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (56 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (57 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (58 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (59 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (60 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (61 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (62 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (63 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (64 of 179)
+[2025-01-05 13:23:48] Importing description.ejs.trap.gz (65 of 179)
+[2025-01-05 13:23:48] Importing reference.ejs.trap.gz (66 of 179)
+[2025-01-05 13:23:48] Importing scenario.ejs.trap.gz (67 of 179)
+[2025-01-05 13:23:48] Importing layout.ejs.trap.gz (68 of 179)
+[2025-01-05 13:23:48] Importing es2016.js.trap.gz (69 of 179)
+[2025-01-05 13:23:48] Importing es2017.js.trap.gz (70 of 179)
+[2025-01-05 13:23:48] Importing es3.js.trap.gz (71 of 179)
+[2025-01-05 13:23:48] Importing es5.js.trap.gz (72 of 179)
+[2025-01-05 13:23:48] Importing es6.js.trap.gz (73 of 179)
+[2025-01-05 13:23:48] Importing es6_collections.js.trap.gz (74 of 179)
+[2025-01-05 13:23:48] Importing intl.js.trap.gz (75 of 179)
+[2025-01-05 13:23:48] Importing proxy.js.trap.gz (76 of 179)
+[2025-01-05 13:23:48] Importing bdd.js.trap.gz (77 of 179)
+[2025-01-05 13:23:48] Importing jquery-3.2.js.trap.gz (78 of 179)
+[2025-01-05 13:23:48] Importing should.js.trap.gz (79 of 179)
+[2025-01-05 13:23:48] Importing vows.js.trap.gz (80 of 179)
+[2025-01-05 13:23:48] Importing assert.js.trap.gz (81 of 179)
+[2025-01-05 13:23:48] Importing assert_legacy.js.trap.gz (82 of 179)
+[2025-01-05 13:23:48] Importing buffer.js.trap.gz (83 of 179)
+[2025-01-05 13:23:48] Importing child_process.js.trap.gz (84 of 179)
+[2025-01-05 13:23:48] Importing cluster.js.trap.gz (85 of 179)
+[2025-01-05 13:23:48] Importing console.js.trap.gz (86 of 179)
+[2025-01-05 13:23:48] Importing constants.js.trap.gz (87 of 179)
+[2025-01-05 13:23:48] Importing crypto.js.trap.gz (88 of 179)
+[2025-01-05 13:23:48] Importing dgram.js.trap.gz (89 of 179)
+[2025-01-05 13:23:48] Importing dns.js.trap.gz (90 of 179)
+[2025-01-05 13:23:48] Importing domain.js.trap.gz (91 of 179)
+[2025-01-05 13:23:48] Importing events.js.trap.gz (92 of 179)
+[2025-01-05 13:23:48] Importing fs.js.trap.gz (93 of 179)
+[2025-01-05 13:23:48] Importing globals.js.trap.gz (94 of 179)
+[2025-01-05 13:23:48] Importing http.js.trap.gz (95 of 179)
+[2025-01-05 13:23:48] Importing https.js.trap.gz (96 of 179)
+[2025-01-05 13:23:48] Importing module.js.trap.gz (97 of 179)
+[2025-01-05 13:23:48] Importing net.js.trap.gz (98 of 179)
+[2025-01-05 13:23:48] Importing os.js.trap.gz (99 of 179)
+[2025-01-05 13:23:48] Importing path.js.trap.gz (100 of 179)
+[2025-01-05 13:23:48] Importing process.js.trap.gz (101 of 179)
+[2025-01-05 13:23:48] Importing punycode.js.trap.gz (102 of 179)
+[2025-01-05 13:23:48] Importing querystring.js.trap.gz (103 of 179)
+[2025-01-05 13:23:48] Importing readline.js.trap.gz (104 of 179)
+[2025-01-05 13:23:48] Importing repl.js.trap.gz (105 of 179)
+[2025-01-05 13:23:48] Importing stream.js.trap.gz (106 of 179)
+[2025-01-05 13:23:48] Importing string_decoder.js.trap.gz (107 of 179)
+[2025-01-05 13:23:48] Importing sys.js.trap.gz (108 of 179)
+[2025-01-05 13:23:48] Importing timers.js.trap.gz (109 of 179)
+[2025-01-05 13:23:48] Importing tls.js.trap.gz (110 of 179)
+[2025-01-05 13:23:48] Importing tty.js.trap.gz (111 of 179)
+[2025-01-05 13:23:48] Importing url.js.trap.gz (112 of 179)
+[2025-01-05 13:23:48] Importing util.js.trap.gz (113 of 179)
+[2025-01-05 13:23:48] Importing v8.js.trap.gz (114 of 179)
+[2025-01-05 13:23:48] Importing vm.js.trap.gz (115 of 179)
+[2025-01-05 13:23:48] Importing zlib.js.trap.gz (116 of 179)
+[2025-01-05 13:23:48] Importing jsshell.js.trap.gz (117 of 179)
+[2025-01-05 13:23:48] Importing rhino.js.trap.gz (118 of 179)
+[2025-01-05 13:23:48] Importing spidermonkey.js.trap.gz (119 of 179)
+[2025-01-05 13:23:48] Importing v8.js.trap.gz (120 of 179)
+[2025-01-05 13:23:48] Importing chrome.js.trap.gz (121 of 179)
+[2025-01-05 13:23:48] Importing fetchapi.js.trap.gz (122 of 179)
+[2025-01-05 13:23:48] Importing fileapi.js.trap.gz (123 of 179)
+[2025-01-05 13:23:48] Importing flash.js.trap.gz (124 of 179)
+[2025-01-05 13:23:48] Importing gecko_css.js.trap.gz (125 of 179)
+[2025-01-05 13:23:48] Importing gecko_dom.js.trap.gz (126 of 179)
+[2025-01-05 13:23:48] Importing gecko_event.js.trap.gz (127 of 179)
+[2025-01-05 13:23:48] Importing gecko_ext.js.trap.gz (128 of 179)
+[2025-01-05 13:23:48] Importing gecko_xml.js.trap.gz (129 of 179)
+[2025-01-05 13:23:48] Importing html5.js.trap.gz (130 of 179)
+[2025-01-05 13:23:48] Importing ie_css.js.trap.gz (131 of 179)
+[2025-01-05 13:23:48] Importing ie_dom.js.trap.gz (132 of 179)
+[2025-01-05 13:23:48] Importing ie_event.js.trap.gz (133 of 179)
+[2025-01-05 13:23:48] Importing ie_vml.js.trap.gz (134 of 179)
+[2025-01-05 13:23:48] Importing intl.js.trap.gz (135 of 179)
+[2025-01-05 13:23:48] Importing iphone.js.trap.gz (136 of 179)
+[2025-01-05 13:23:48] Importing mediasource.js.trap.gz (137 of 179)
+[2025-01-05 13:23:48] Importing page_visibility.js.trap.gz (138 of 179)
+[2025-01-05 13:23:48] Importing streamsapi.js.trap.gz (139 of 179)
+[2025-01-05 13:23:48] Importing url.js.trap.gz (140 of 179)
+[2025-01-05 13:23:48] Importing w3c_anim_timing.js.trap.gz (141 of 179)
+[2025-01-05 13:23:48] Importing w3c_batterystatus.js.trap.gz (142 of 179)
+[2025-01-05 13:23:48] Importing w3c_css.js.trap.gz (143 of 179)
+[2025-01-05 13:23:48] Importing w3c_css3d.js.trap.gz (144 of 179)
+[2025-01-05 13:23:48] Importing w3c_device_sensor_event.js.trap.gz (145 of 179)
+[2025-01-05 13:23:48] Importing w3c_dom1.js.trap.gz (146 of 179)
+[2025-01-05 13:23:48] Importing w3c_dom2.js.trap.gz (147 of 179)
+[2025-01-05 13:23:48] Importing w3c_dom3.js.trap.gz (148 of 179)
+[2025-01-05 13:23:49] Importing w3c_dom4.js.trap.gz (149 of 179)
+[2025-01-05 13:23:49] Importing w3c_elementtraversal.js.trap.gz (150 of 179)
+[2025-01-05 13:23:49] Importing w3c_encoding.js.trap.gz (151 of 179)
+[2025-01-05 13:23:49] Importing w3c_event.js.trap.gz (152 of 179)
+[2025-01-05 13:23:49] Importing w3c_event3.js.trap.gz (153 of 179)
+[2025-01-05 13:23:49] Importing w3c_gamepad.js.trap.gz (154 of 179)
+[2025-01-05 13:23:49] Importing w3c_geolocation.js.trap.gz (155 of 179)
+[2025-01-05 13:23:49] Importing w3c_indexeddb.js.trap.gz (156 of 179)
+[2025-01-05 13:23:49] Importing w3c_midi.js.trap.gz (157 of 179)
+[2025-01-05 13:23:49] Importing w3c_navigation_timing.js.trap.gz (158 of 179)
+[2025-01-05 13:23:49] Importing w3c_permissions.js.trap.gz (159 of 179)
+[2025-01-05 13:23:49] Importing w3c_pointer_events.js.trap.gz (160 of 179)
+[2025-01-05 13:23:49] Importing w3c_range.js.trap.gz (161 of 179)
+[2025-01-05 13:23:49] Importing w3c_requestidlecallback.js.trap.gz (162 of 179)
+[2025-01-05 13:23:49] Importing w3c_rtc.js.trap.gz (163 of 179)
+[2025-01-05 13:23:49] Importing w3c_screen_orientation.js.trap.gz (164 of 179)
+[2025-01-05 13:23:49] Importing w3c_selectors.js.trap.gz (165 of 179)
+[2025-01-05 13:23:49] Importing w3c_serviceworker.js.trap.gz (166 of 179)
+[2025-01-05 13:23:49] Importing w3c_touch_event.js.trap.gz (167 of 179)
+[2025-01-05 13:23:49] Importing w3c_webcrypto.js.trap.gz (168 of 179)
+[2025-01-05 13:23:49] Importing w3c_xml.js.trap.gz (169 of 179)
+[2025-01-05 13:23:49] Importing webgl.js.trap.gz (170 of 179)
+[2025-01-05 13:23:49] Importing webkit_css.js.trap.gz (171 of 179)
+[2025-01-05 13:23:49] Importing webkit_dom.js.trap.gz (172 of 179)
+[2025-01-05 13:23:49] Importing webkit_event.js.trap.gz (173 of 179)
+[2025-01-05 13:23:49] Importing webkit_notifications.js.trap.gz (174 of 179)
+[2025-01-05 13:23:49] Importing webkit_usercontent.js.trap.gz (175 of 179)
+[2025-01-05 13:23:49] Importing webstorage.js.trap.gz (176 of 179)
+[2025-01-05 13:23:49] Importing whatwg_encoding.js.trap.gz (177 of 179)
+[2025-01-05 13:23:49] Importing window.js.trap.gz (178 of 179)
+[2025-01-05 13:23:49] Importing sourceLocationPrefix.trap.gz (179 of 179)
+[2025-01-05 13:23:49] [PROGRESS] dataset import> Merging relations
+[2025-01-05 13:23:49] Merging 1 fragment for 'files'.
+[2025-01-05 13:23:49] Merged 1424 bytes (1.39 KiB) for 'files'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'folders'.
+[2025-01-05 13:23:49] Merged 320 bytes for 'folders'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'containerparent'.
+[2025-01-05 13:23:49] Merged 1736 bytes (1.70 KiB) for 'containerparent'.
+[2025-01-05 13:23:49] Merging 2 fragments for 'locations_default'.
+[2025-01-05 13:23:49] Merged 4751976 bytes (4.53 MiB) for 'locations_default'.
+[2025-01-05 13:23:49] Merging 3 fragments for 'hasLocation'.
+[2025-01-05 13:23:49] Merged 1947976 bytes (1.86 MiB) for 'hasLocation'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'extraction_data'.
+[2025-01-05 13:23:49] Merged 2848 bytes (2.78 KiB) for 'extraction_data'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'scopes'.
+[2025-01-05 13:23:49] Merged 32720 bytes (31.95 KiB) for 'scopes'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'indentation'.
+[2025-01-05 13:23:49] Merged 414448 bytes (404.73 KiB) for 'indentation'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'numlines'.
+[2025-01-05 13:23:49] Merged 6256 bytes (6.11 KiB) for 'numlines'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'tokeninfo'.
+[2025-01-05 13:23:49] Merged 1882580 bytes (1.80 MiB) for 'tokeninfo'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'toplevels'.
+[2025-01-05 13:23:49] Merged 1704 bytes (1.66 KiB) for 'toplevels'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'variables'.
+[2025-01-05 13:23:49] Merged 124872 bytes (121.95 KiB) for 'variables'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'scopenodes'.
+[2025-01-05 13:23:49] Merged 32712 bytes (31.95 KiB) for 'scopenodes'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'scopenesting'.
+[2025-01-05 13:23:49] Merged 32712 bytes (31.95 KiB) for 'scopenesting'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_module'.
+[2025-01-05 13:23:49] Merged 520 bytes for 'is_module'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'stmts'.
+[2025-01-05 13:23:49] Merged 292800 bytes (285.94 KiB) for 'stmts'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'stmt_containers'.
+[2025-01-05 13:23:49] Merged 117120 bytes (114.38 KiB) for 'stmt_containers'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'exprs'.
+[2025-01-05 13:23:49] Merged 1278960 bytes (1.22 MiB) for 'exprs'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'enclosing_stmt'.
+[2025-01-05 13:23:49] Merged 464928 bytes (454.03 KiB) for 'enclosing_stmt'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'expr_containers'.
+[2025-01-05 13:23:49] Merged 511584 bytes (499.59 KiB) for 'expr_containers'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'literals'.
+[2025-01-05 13:23:49] Merged 440244 bytes (429.93 KiB) for 'literals'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'bind'.
+[2025-01-05 13:23:49] Merged 85776 bytes (83.77 KiB) for 'bind'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'properties'.
+[2025-01-05 13:23:49] Merged 4800 bytes (4.69 KiB) for 'properties'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'regexpterm'.
+[2025-01-05 13:23:49] Merged 6940 bytes (6.78 KiB) for 'regexpterm'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'regexp_const_value'.
+[2025-01-05 13:23:49] Merged 2256 bytes (2.20 KiB) for 'regexp_const_value'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'entry_cfg_node'.
+[2025-01-05 13:23:49] Merged 33376 bytes (32.59 KiB) for 'entry_cfg_node'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'exit_cfg_node'.
+[2025-01-05 13:23:49] Merged 33376 bytes (32.59 KiB) for 'exit_cfg_node'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'successor'.
+[2025-01-05 13:23:49] Merged 665752 bytes (650.15 KiB) for 'successor'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'guard_node'.
+[2025-01-05 13:23:49] Merged 1752 bytes (1.71 KiB) for 'guard_node'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_nodejs'.
+[2025-01-05 13:23:49] Merged 192 bytes for 'is_nodejs'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'filetype'.
+[2025-01-05 13:23:49] Merged 1424 bytes (1.39 KiB) for 'filetype'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'extraction_time'.
+[2025-01-05 13:23:49] Merged 64080 bytes (62.58 KiB) for 'extraction_time'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'comments'.
+[2025-01-05 13:23:49] Merged 211840 bytes (206.88 KiB) for 'comments'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'next_token'.
+[2025-01-05 13:23:49] Merged 84736 bytes (82.75 KiB) for 'next_token'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'decl'.
+[2025-01-05 13:23:49] Merged 49016 bytes (47.87 KiB) for 'decl'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_arguments_object'.
+[2025-01-05 13:23:49] Merged 15780 bytes (15.41 KiB) for 'is_arguments_object'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_computed'.
+[2025-01-05 13:23:49] Merged 4 bytes for 'is_computed'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_greedy'.
+[2025-01-05 13:23:49] Merged 8 bytes for 'is_greedy'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_capture'.
+[2025-01-05 13:23:49] Merged 16 bytes for 'is_capture'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'yaml_scalars'.
+[2025-01-05 13:23:49] Merged 288 bytes for 'yaml_scalars'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'yaml'.
+[2025-01-05 13:23:49] Merged 840 bytes for 'yaml'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'yaml_locations'.
+[2025-01-05 13:23:49] Merged 280 bytes for 'yaml_locations'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'json'.
+[2025-01-05 13:23:49] Merged 640 bytes for 'json'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'json_locations'.
+[2025-01-05 13:23:49] Merged 256 bytes for 'json_locations'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'json_literals'.
+[2025-01-05 13:23:49] Merged 336 bytes for 'json_literals'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'json_properties'.
+[2025-01-05 13:23:49] Merged 372 bytes for 'json_properties'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'expr_contains_template_tag_location'.
+[2025-01-05 13:23:49] Merged 8 bytes for 'expr_contains_template_tag_location'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'toplevel_parent_xml_node'.
+[2025-01-05 13:23:49] Merged 728 bytes for 'toplevel_parent_xml_node'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'xmlElements'.
+[2025-01-05 13:23:49] Merged 10740 bytes (10.49 KiB) for 'xmlElements'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'xmllocations'.
+[2025-01-05 13:23:49] Merged 9480 bytes (9.26 KiB) for 'xmllocations'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'xmlAttrs'.
+[2025-01-05 13:23:49] Merged 15456 bytes (15.09 KiB) for 'xmlAttrs'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'template_placeholder_tag_info'.
+[2025-01-05 13:23:49] Merged 2652 bytes (2.59 KiB) for 'template_placeholder_tag_info'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'xmlComments'.
+[2025-01-05 13:23:49] Merged 64 bytes for 'xmlComments'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc'.
+[2025-01-05 13:23:49] Merged 110076 bytes (107.50 KiB) for 'jsdoc'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_tags'.
+[2025-01-05 13:23:49] Merged 362440 bytes (353.95 KiB) for 'jsdoc_tags'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_tag_descriptions'.
+[2025-01-05 13:23:49] Merged 27432 bytes (26.79 KiB) for 'jsdoc_tag_descriptions'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_tag_names'.
+[2025-01-05 13:23:49] Merged 39352 bytes (38.43 KiB) for 'jsdoc_tag_names'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_type_exprs'.
+[2025-01-05 13:23:49] Merged 464080 bytes (453.20 KiB) for 'jsdoc_type_exprs'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'is_externs'.
+[2025-01-05 13:23:49] Merged 440 bytes for 'is_externs'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_prefix_qualifier'.
+[2025-01-05 13:23:49] Merged 7192 bytes (7.02 KiB) for 'jsdoc_prefix_qualifier'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_errors'.
+[2025-01-05 13:23:49] Merged 3200 bytes (3.12 KiB) for 'jsdoc_errors'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_record_field_name'.
+[2025-01-05 13:23:49] Merged 5964 bytes (5.82 KiB) for 'jsdoc_record_field_name'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'jsdoc_has_new_parameter'.
+[2025-01-05 13:23:49] Merged 28 bytes for 'jsdoc_has_new_parameter'.
+[2025-01-05 13:23:49] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-01-05 13:23:49] Merged 4 bytes for 'sourceLocationPrefix'.
+[2025-01-05 13:23:49] Saving string and id pools to disk.
+[2025-01-05 13:23:49] Finished importing TRAP files.
+[2025-01-05 13:23:49] Read 45.47 MiB of uncompressed TRAP data.
+[2025-01-05 13:23:49] Relation data size: 13.98 MiB (merge rate: 50.99 MiB/s)
+[2025-01-05 13:23:49] String pool size: 4.78 MiB
+[2025-01-05 13:23:49] ID pool size: 13.00 MiB
+[2025-01-05 13:23:49] [PROGRESS] dataset import> Finished writing database (relations: 13.98 MiB; string pool: 4.78 MiB).
+[2025-01-05 13:23:49] Pausing evaluation to close the cache at sequence stamp o+137
+[2025-01-05 13:23:49] The disk cache is freshly trimmed; leave it be.
+[2025-01-05 13:23:49] Unpausing evaluation
+[2025-01-05 13:23:49] Plumbing command codeql dataset import completed.
+[2025-01-05 13:23:49] [PROGRESS] database finalize> TRAP import complete (1.9s).
+[2025-01-05 13:23:49] Running plumbing command: codeql database cleanup -- /Users/raphahausen/pentesting/database/dvna1
+[2025-01-05 13:23:49] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-01-05 13:23:49] [PROGRESS] database cleanup> TRAP files cleaned up (13ms).
+[2025-01-05 13:23:49] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-01-05 13:23:49] [PROGRESS] database cleanup> Scratch directory cleaned up (0ms).
+[2025-01-05 13:23:49] Running plumbing command: codeql dataset cleanup -- /Users/raphahausen/pentesting/database/dvna1/db-javascript
+[2025-01-05 13:23:49] [PROGRESS] dataset cleanup> Cleaning up dataset in /Users/raphahausen/pentesting/database/dvna1/db-javascript.
+[2025-01-05 13:23:49] Trimming disk cache at /Users/raphahausen/pentesting/database/dvna1/db-javascript/default/cache in mode trim.
+[2025-01-05 13:23:49] Sequence stamp origin is -6097479901586983460
+[2025-01-05 13:23:49] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-01-05 13:23:49] Unpausing evaluation
+[2025-01-05 13:23:49] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-01-05 13:23:49] Unpausing evaluation
+[2025-01-05 13:23:49] Trimming completed (1ms): Trimmed disposable data from cache.
+[2025-01-05 13:23:49] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-01-05 13:23:49] The disk cache is freshly trimmed; leave it be.
+[2025-01-05 13:23:49] Unpausing evaluation
+[2025-01-05 13:23:49] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-01-05 13:23:49] [PROGRESS] dataset cleanup> Finalizing dataset in /Users/raphahausen/pentesting/database/dvna1/db-javascript
+[2025-01-05 13:23:49] [DETAILS] dataset cleanup> Finished deleting ID pool from /Users/raphahausen/pentesting/database/dvna1/db-javascript (1ms).
+[2025-01-05 13:23:49] Plumbing command codeql dataset cleanup completed.
+[2025-01-05 13:23:49] Plumbing command codeql database cleanup completed with status 0.
+[2025-01-05 13:23:49] [PROGRESS] database finalize> Finished zipping source archive (285.54 KiB).
+[2025-01-05 13:23:49] Plumbing command codeql database finalize completed.
+[2025-01-05 13:23:49] [PROGRESS] database create> Successfully created database at /Users/raphahausen/pentesting/database/dvna1.
+[2025-01-05 13:23:49] Terminating normally.

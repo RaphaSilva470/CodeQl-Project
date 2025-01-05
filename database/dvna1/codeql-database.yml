@@ -1,0 +1,11 @@
+---
+sourceLocationPrefix: /Users/raphahausen/pentesting/dvna
+baselineLinesOfCode: 671
+unicodeNewlines: true
+columnKind: utf16
+primaryLanguage: javascript
+creationMetadata:
+  sha: 9ba473add536f66ac9007966acb2a775dd31277a
+  cliVersion: 2.20.0
+  creationTime: 2025-01-05T12:23:45.209272Z
+finalised: true
